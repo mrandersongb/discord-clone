@@ -1,5 +1,5 @@
 /**
- * Button Style definition
+ * Button Server Style definition
  */
 
 import styled from "styled-components";
@@ -37,10 +37,9 @@ export const Button = styled.button<ButtonProps>`
 
     position: absolute;
     left: -17px;
-    top: calc(50% - 4.5px);
+    border-radius: 50%;
 
     background-color: var(--white);
-    border-radius: 50%;
 
     content: "";
     display: ${(props) => (props.hasNotifications ? "inline" : "none")};

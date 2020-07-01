@@ -1,5 +1,8 @@
 import React from "react";
-import { Container, ServerButton, Separator } from "./styles";
+
+import ServerButton from "../ServerButton";
+
+import { Container, Separator } from "./styles";
 
 const ServerList: React.FC = () => {
   return (
@@ -11,6 +14,17 @@ const ServerList: React.FC = () => {
       <ServerButton />
       <ServerButton hasNotifications />
       <ServerButton mentions={3} />
+
+      <ServerButton />
+      <ServerButton />
+      <ServerButton />
+
+      <ServerButton />
+      <ServerButton />
+      <ServerButton />
+
+      <ServerButton />
+      <ServerButton />
 
       <ServerButton />
       <ServerButton />

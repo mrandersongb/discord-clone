@@ -1,5 +1,13 @@
-import React from "react"
+import React from "react";
 import { Grid } from "./styles";
 
-const Layout: React.FC = () => <Grid>Hello Layout</Grid>;
+import ServerList from "../ServerList";
+import ServerName from "../ServerName";
+
+const Layout: React.FC = () => (
+  <Grid>
+    <ServerList />
+    <ServerName />
+  </Grid>
+);
 export default Layout;
