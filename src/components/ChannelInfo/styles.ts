@@ -1,5 +1,5 @@
 /**
- * Channel info style definition
+ * Channel Info style definition
  */
 
 import styled from "styled-components";
