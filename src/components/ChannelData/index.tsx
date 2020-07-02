@@ -1,35 +1,50 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 
 import { Container, Messages, InputWrapper, Input, InputIcon } from "./styles";
 
-import ChannelMessage from "../ChannelMessage";
+import ChannelMessage, { Mention } from "../ChannelMessage";
 
-const ChannelData: React.FC = () => (
-  <Container>
-    <Messages>
-      <ChannelMessage
-        author="HayGo Studios"
-        date="01.07.2020"
-        content="Seja bem vindo ao Discord Clone!"
-      />
+const ChannelData: React.FC = () => {
+  const messageRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 
-      <ChannelMessage
-        author="Anderson Gomes"
-        date="01.07.2020"
-        content={
-          <>
-            {/* <Mention>"Me carregue no grupo do estúdio, por favor!"</Mention> */}
-          </>
-        }
-        isBot
-        asMention
-      />
-    </Messages>
+  useEffect(() => {
+    const div = messageRef.current;
 
-    <InputWrapper>
-      <Input type="text" placeholder="Conversar em #chat-livre" />
-      <InputIcon />
-    </InputWrapper>
-  </Container>
-);
+    if (div) {
+      div.scrollTop = div.scrollHeight;
+    }
+  }, [messageRef]);
+
+  return (
+    <Container>
+      <Messages ref={messageRef}>
+        {Array.from(Array(15).keys()).map((i) => (
+          <ChannelMessage
+            author="HayGo Studios"
+            date="01/07/2020"
+            content="Seja bem vindo ao Discord Clone!"
+          />
+        ))}
+
+        <ChannelMessage
+          author="Anderson Gomes"
+          date="01/07/2020"
+          content={
+            <>
+              <Mention>@HayStudios</Mention>, Me carregue no grupo do estúdio,
+              por favor!
+            </>
+          }
+          isBot
+          asMention
+        />
+      </Messages>
+
+      <InputWrapper>
+        <Input type="text" placeholder="Conversar em #chat-livre" />
+        <InputIcon />
+      </InputWrapper>
+    </Container>
+  );
+};
 export default ChannelData;

@@ -2,6 +2,8 @@ import React from "react";
 
 import { Container, Avatar, Message, Header, Content } from "./styles";
 
+export { Mention } from "./styles";
+
 export interface ChannelMessageProps {
   author: string;
   date: string;
